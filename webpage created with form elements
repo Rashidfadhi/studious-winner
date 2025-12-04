@@ -1,0 +1,262 @@
+code:html5
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width",intitial-scale='1.0'>
+<title>webpage form using advanced css3</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="whole-page">
+<div class="structure">
+ <img src="/intro-to-html/pictures/orange.jpg" class="background-image">  
+<div class="relative">
+<div class="absolute">
+   <div class="loginn">login</div>
+   <form action="" method="get">
+      <input type="text" placeholder="Enter your email" id="email">
+      <input type="text" placeholder="Enter your password" id="email">
+      <label class="container"> Remember me
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span></label>
+      <label for="text" id="password">Forgot password?</label>
+      <button class="button">Log in</button>
+      <label for="text" class="footer">Don't have an account?</label>
+      <span class="f-last">Register</span>
+   </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+
+
+code:css3
+
+
+  *{
+    margin-top: 10px;
+   }
+
+   body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif; 
+    background-color: rgb(41, 37, 34); 
+    
+  }
+   .structure{
+    display: flex;
+   
+
+   }
+   .background-image{
+    width: 800px;
+    height:500px;
+   }
+  .relative{
+    position: relative;
+    
+  }
+  .absolute{
+    position: absolute;
+    z-index: 1;
+    background-color:rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    right: 250px;
+    bottom: 80px;
+    width: 320px;
+    height: 310px;
+    border-radius: 5px;
+  }
+  
+.loginn{
+    margin-left: 120px;
+    font-size:  2.7em;
+    color: rgb(255, 174, 0);
+    text-shadow: 
+        0 1px 0 #ff8800, 
+        1px 2px 0 #ff8800,
+        2px 3px 0 #ff8800, 
+        3px 4px 0 #ff8800, 
+        4px 5px 0 #ff8800, 
+        5px 6px 0 #ff8800, 
+        6px 7px 0 #ff8800, 
+        7px 8px 0 rgb(139, 74, 0), 
+        8px 9px 8px rgb(0, 0, 0);
+    -webkit-text-stroke: 2px rgb(189, 107, 31) ;       
+
+
+}
+
+#email{
+  padding: 8px;
+  width: 80%;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
+ 
+}
+input{
+  background-color:transparent;
+  border: none;
+  border-bottom: 2px solid rgb(43, 28, 0);
+  outline: none;
+   
+}
+input:focus{
+  font-weight: bold;
+  color: rgb(0, 0, 0) ;
+  background-color: rgba(102, 100, 100, 0);
+  
+
+}
+::placeholder{
+  color: #995200;
+  
+  font-size: 1.1em;
+ 
+}
+
+.container{
+  color: #000000;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 22px;
+  margin-left: 25px; 
+  margin-top: 20px;
+  width: fit-content;
+  height: fit-content;
+  
+}
+.container input{
+   margin-top: -2px;
+   margin-left: -25px;
+   position: absolute;
+   height: 15px;
+   width: 15px;
+   accent-color: rgb(255, 145, 0);
+   z-index: 1;
+   
+ 
+}
+.checkmark{
+  position: absolute;
+  background-color: transparent;
+  border:1px solid rgb(255, 184, 78);
+  left: -3px;
+  top: -13.6px;
+  height: 13.49px;
+  width: 13.89px;
+  border-radius: 1px;
+}
+
+
+
+.container input:focus ~ .checkmark{
+
+  transition: 0.2s ease-in transform;
+  transform: scale(1.03);
+ 
+}
+
+.container input:checked ~.checkmark{
+   border:0.3px solid orange;
+   box-shadow: 0.5px 0.5px 0.5px 1px rgb(255, 239, 12);
+   
+}
+
+
+
+#password{
+  color: #000000;
+  margin-left: 150px;
+  font-size: 12px;
+  white-space: nowrap;
+  position: absolute;
+  right: 25px;
+  cursor: pointer;
+  bottom: 99px;
+  border-bottom: 1px solid rgb(255, 230, 0);
+
+ }
+ 
+ .button{
+     padding: 12px;
+     color: #221f00;
+     width: 100px;
+     background-color: rgb(255, 202, 105,0.8);
+     margin-left: 110px;
+     margin-top: 20px;
+     border-radius:30px;
+     border:none;
+     font-family:Arial, Helvetica, sans-serif;
+     font-size: 17px;
+     position: relative;
+     cursor: pointer;
+    }
+    .button:hover{
+      background: linear-gradient(var(--spin),red,tomato,orange);
+      animation: spin 1s ease-in infinite;
+        
+    }
+    
+    @property --spin{
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 30deg;
+    }
+    @keyframes spin{
+     from{
+      --spin:360deg
+     }
+    
+    }
+    .button::before,
+    .button::after{
+        content: '';
+        width: 101px;
+        height: 45px;
+        top: -4.5px;
+        left: -4px;
+        z-index: -1;
+        border-radius: 30px;
+        padding: 4px;
+        background: linear-gradient(var(--spin),transparent ,rgb(255, 86, 8));
+        position: absolute;
+        animation: spin 2s linear infinite;
+    }
+    .button::after{
+        filter: blur(13px);
+        opacity: 0.5px;
+    }
+    .footer{
+       font-size: 12px;
+       position: absolute;
+       margin-top: 78px;
+       white-space: nowrap;
+       left: 85px;
+       color: #000000;
+    }
+    .f-last{
+      font-size: 12px;
+      border-bottom:1px solid #ffe70c ;
+      color: #000000;
+      margin-top: 78px;
+      margin-left: 3px;
+      position: absolute;
+      cursor: pointer;
+      
+    }
